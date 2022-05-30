@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "HouseholdCompositionResident")
+@Table(name = "household_composition_resident")
 public class HouseholdCompositionResident {
 
     @EmbeddedId
@@ -26,12 +26,14 @@ public class HouseholdCompositionResident {
     @Column(name="household_composition_change_reason_code")
     private String householdCompositionChangeReasonCode;
 
+    @MapsId("residentSerialNumber")
     @ManyToOne
-    @Column(name = "resident_serial_number")
+    @JoinColumn(name = "resident_serial_number")
     private Resident resident;
 
+    @MapsId("householdSerialNumber")
     @ManyToOne
-    @Column(name = "household_serial_number")
+    @JoinColumn(name = "household_serial_number")
     private Household household;
 
     @NoArgsConstructor

@@ -10,7 +10,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "householdMovementAddress")
+@AllArgsConstructor
+@Table(name = "household_movement_address")
 public class HouseholdMovementAddress {
 
     @EmbeddedId
@@ -22,6 +23,7 @@ public class HouseholdMovementAddress {
     @Column(name = "last_address_yn")
     private String lastAddressYn;
 
+    @MapsId("householdSerialNumber")
     @ManyToOne
     @JoinColumn(name = "household_serial_number")
     private Household household;
@@ -37,6 +39,6 @@ public class HouseholdMovementAddress {
         private LocalDate houseMovementReportDate;
 
         @Column(name = "household_serial_number")
-        private Long houseSerialNumber;
+        private Long householdSerialNumber;
     }
 }

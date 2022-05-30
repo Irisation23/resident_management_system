@@ -1,6 +1,6 @@
 package com.nhnacademy.residentmanagementsystem.config;
 
-import com.nhnacademy.springjpa.controller.ControllerBase;
+import com.nhnacademy.residentmanagementsystem.controller.ControllerBase;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

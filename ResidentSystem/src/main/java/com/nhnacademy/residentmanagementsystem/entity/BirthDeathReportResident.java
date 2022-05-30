@@ -7,11 +7,12 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "BirthDeathReportResident")
+@Table(name = "birth_death_report_resident")
 public class BirthDeathReportResident {
 
     @EmbeddedId
@@ -19,15 +20,20 @@ public class BirthDeathReportResident {
 
     @Column(name = "birth_death_report_date")
     private LocalDate birthDeathReportDate;
+
     @Column(name = "birth_report_qualifications_code")
     private String birthReportQualificationsCode;
+
     @Column(name = "death_report_qualifications_code")
     private String deathReportQualificationsCode;
+
     @Column(name = "email_address")
     private String emailAddress;
+
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @MapsId("residentSerialNumber")
     @ManyToOne
     @JoinColumn(name = "resident_serial_number")
     private Resident resident;
@@ -48,6 +54,5 @@ public class BirthDeathReportResident {
 
         @Column(name = "resident_serial_number")
         private String residentSerialNumber;
-
     }
 }

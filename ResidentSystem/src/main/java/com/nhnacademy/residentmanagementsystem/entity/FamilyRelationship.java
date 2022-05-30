@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-@Table(name = "FamilyRelationship")
+@Table(name = "family_relationship")
 public class FamilyRelationship {
     @EmbeddedId
     private FamilyRelationshipPk familyRelationshipPk;
@@ -17,8 +17,9 @@ public class FamilyRelationship {
     @Column(name = "family_relationship_code")
     private String familyRelationshipCode;
 
+    @MapsId("baseResidentSerialNumber")
     @ManyToOne
-    @JoinColumn(name = "resident_serial_number")
+    @JoinColumn(name = "base_resident_serial_number")
     private Resident resident;
 
     @NoArgsConstructor

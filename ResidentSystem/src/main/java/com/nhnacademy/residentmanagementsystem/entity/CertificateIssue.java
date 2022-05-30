@@ -1,23 +1,23 @@
 package com.nhnacademy.residentmanagementsystem.entity;
 
-import jdk.vm.ci.meta.Local;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "CertificateIssue")
+@Table(name = "certificate_issue")
 public class CertificateIssue {
 
     @Id
     @Column(name = "certificate_confirmation_number")
-    private Long certificateConfirmationNumber;
+    private BigInteger certificateConfirmationNumber;
 
     @Column(name = "certificate_type_code")
     private String certificateTypeCode;

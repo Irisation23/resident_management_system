@@ -1,18 +1,20 @@
 package com.nhnacademy.residentmanagementsystem.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "Resident")
+@Table(name = "resident")
 public class Resident {
 
     @Id
@@ -31,7 +33,7 @@ public class Resident {
     private LocalDateTime birthDate;
 
     @Column(name = "birth_place_code")
-    private LocalDateTime birthPlaceCode;
+    private String birthPlaceCode;
 
     @Column(name = "registration_base_address")
     private String registrationBaseAddress;
@@ -46,18 +48,23 @@ public class Resident {
     private String deathPlaceAddress;
 
     @OneToMany(mappedBy = "resident")
+    @JsonIgnore
     List<BirthDeathReportResident> birthDeathReportResidentList;
 
     @OneToMany(mappedBy = "resident")
+    @JsonIgnore
     List<FamilyRelationship> familyRelationshipList;
 
     @OneToMany(mappedBy = "resident")
+    @JsonIgnore
     List<CertificateIssue> certificateIssueList;
 
     @OneToMany(mappedBy = "resident")
+    @JsonIgnore
     List<HouseholdCompositionResident> householdCompositionResidentList;
 
     @OneToMany(mappedBy = "resident")
+    @JsonIgnore
     List<Household> householdList;
 
 }

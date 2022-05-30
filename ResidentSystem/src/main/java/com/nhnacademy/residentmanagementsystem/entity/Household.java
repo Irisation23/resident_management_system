@@ -1,5 +1,6 @@
 package com.nhnacademy.residentmanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "Household")
+@Table(name = "household")
 public class Household {
 
     @Id
@@ -27,11 +28,17 @@ public class Household {
     private String currentHouseMovementAddress;
 
     @ManyToOne
-    @JoinColumn(name = "resident_serial_number")
+    @JoinColumn(name = "household_resident_serial_number")
     private Resident resident;
 
     @OneToMany(mappedBy = "household")
+    @JsonIgnore
     private List<HouseholdMovementAddress> householdMovementAddressList;
+
+    @OneToMany(mappedBy = "household")
+    @JsonIgnore
+    private List<HouseholdCompositionResident> householdCompositionResidentList;
+
 
 
 }
