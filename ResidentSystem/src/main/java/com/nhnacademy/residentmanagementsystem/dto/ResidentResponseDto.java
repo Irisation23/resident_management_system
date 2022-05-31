@@ -2,7 +2,6 @@ package com.nhnacademy.residentmanagementsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 public interface ResidentResponseDto {
