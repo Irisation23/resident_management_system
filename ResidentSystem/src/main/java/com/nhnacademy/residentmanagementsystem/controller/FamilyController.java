@@ -31,6 +31,4 @@ public class FamilyController {
                                     @PathVariable("familySerialNumber") Long familySerialNumber) {
         return familyRelationshipService.deleteFamilyRelationship(serialNumber,familySerialNumber);
     }
-
-
 }

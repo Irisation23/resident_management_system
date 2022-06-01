@@ -50,9 +50,9 @@ public class BirthDeathReportResident {
         private String birthDeathTypeCode;
 
         @Column(name = "report_resident_serial_number")
-        private String reportResidentSerialNumber;
+        private Long reportResidentSerialNumber;
 
         @Column(name = "resident_serial_number")
-        private String residentSerialNumber;
+        private Long residentSerialNumber;
     }
 }
