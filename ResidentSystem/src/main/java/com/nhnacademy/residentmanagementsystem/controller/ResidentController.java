@@ -1,7 +1,7 @@
 package com.nhnacademy.residentmanagementsystem.controller;
 
-import com.nhnacademy.residentmanagementsystem.dto.ResidentRequestDto;
-import com.nhnacademy.residentmanagementsystem.dto.ResidentResponseDto;
+import com.nhnacademy.residentmanagementsystem.dto.request.ResidentRequestDto;
+import com.nhnacademy.residentmanagementsystem.dto.response.ResidentResponseDto;
 import com.nhnacademy.residentmanagementsystem.service.ResidentService;
 import org.springframework.web.bind.annotation.*;
 

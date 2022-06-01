@@ -1,4 +1,4 @@
-package com.nhnacademy.residentmanagementsystem.dto;
+package com.nhnacademy.residentmanagementsystem.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

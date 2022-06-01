@@ -1,4 +1,4 @@
-package com.nhnacademy.residentmanagementsystem.dto;
+package com.nhnacademy.residentmanagementsystem.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

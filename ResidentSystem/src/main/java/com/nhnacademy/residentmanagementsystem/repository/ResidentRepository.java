@@ -1,6 +1,6 @@
 package com.nhnacademy.residentmanagementsystem.repository;
 
-import com.nhnacademy.residentmanagementsystem.dto.ResidentResponseDto;
+import com.nhnacademy.residentmanagementsystem.dto.response.ResidentResponseDto;
 import com.nhnacademy.residentmanagementsystem.entity.Resident;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

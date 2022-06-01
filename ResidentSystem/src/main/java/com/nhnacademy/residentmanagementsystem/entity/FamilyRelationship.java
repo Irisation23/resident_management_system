@@ -5,12 +5,14 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "family_relationship")
 public class FamilyRelationship {
+
     @EmbeddedId
     private FamilyRelationshipPk familyRelationshipPk;
 

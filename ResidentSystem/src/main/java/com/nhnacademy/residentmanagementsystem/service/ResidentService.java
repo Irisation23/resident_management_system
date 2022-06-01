@@ -1,9 +1,8 @@
 package com.nhnacademy.residentmanagementsystem.service;
 
 
-import com.nhnacademy.residentmanagementsystem.dto.ResidentRequestDto;
-import com.nhnacademy.residentmanagementsystem.dto.ResidentResponseDto;
-import com.nhnacademy.residentmanagementsystem.entity.Resident;
+import com.nhnacademy.residentmanagementsystem.dto.request.ResidentRequestDto;
+import com.nhnacademy.residentmanagementsystem.dto.response.ResidentResponseDto;
 
 public interface ResidentService {
 

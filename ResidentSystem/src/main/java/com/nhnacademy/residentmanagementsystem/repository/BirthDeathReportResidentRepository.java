@@ -5,4 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BirthDeathReportResidentRepository extends JpaRepository<BirthDeathReportResident
         , BirthDeathReportResident.BirthDeathReportResidentPk> {
-}2
+}
