@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class HouseholdCompositionResident {
 
     @EmbeddedId
-    private HouseholdCompositionResidentPk householdPk;
+    private HouseholdCompositionResidentPk householdCompositionResidentPk;
 
     @Column(name = "report_date")
     private LocalDate reportDate;

@@ -1,7 +1,6 @@
 package com.nhnacademy.residentmanagementsystem.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.nhnacademy.residentmanagementsystem.entity.Resident;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,9 +11,9 @@ public interface HouseholdResponseDto {
     LocalDate getHouseholdCompositionDate();
     String getHouseholdCompositionReasonCode();
     String getCurrentHouseMovementAddress();
-    ResidentDto getResident();
+    ResidentResponse getResident();
 
-    interface ResidentDto{
+    interface ResidentResponse{
         Long getResidentSerialNumber();
         String getName();
         String getResidentRegistrationNumber();

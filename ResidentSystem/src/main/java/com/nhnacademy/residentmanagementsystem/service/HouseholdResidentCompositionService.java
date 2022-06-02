@@ -1,0 +1,10 @@
+package com.nhnacademy.residentmanagementsystem.service;
+
+import com.nhnacademy.residentmanagementsystem.dto.request.HouseholdCompositionResidentRequestDto;
+import com.nhnacademy.residentmanagementsystem.dto.response.HouseholdCompositionResponseResidentDto;
+
+public interface HouseholdResidentCompositionService {
+
+    HouseholdCompositionResponseResidentDto registerHouseholdResidentCompositions(HouseholdCompositionResidentRequestDto householdResidentCompositionRequestDto);
+    String deleteHouseholdResidentCompositions(Long serialNum, Long householdSerialNum);
+}
