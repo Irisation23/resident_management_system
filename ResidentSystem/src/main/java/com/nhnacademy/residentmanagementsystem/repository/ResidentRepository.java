@@ -20,6 +20,8 @@ public interface ResidentRepository extends JpaRepository<Resident
             , @Param("residentSerialNumber") Long residentSerialNumber);
 
     ResidentResponseDto findByResidentSerialNumber(Long residentSerialNumber);
+
     //원래는 findById (findByResdentSerialNumber) 결과가 Optional<Resident>
     // 이 결과를 다시 Dto로 변환해서 반환해줌
+
 }

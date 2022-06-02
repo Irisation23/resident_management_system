@@ -39,6 +39,11 @@ public class Household {
     @JsonIgnore
     private List<HouseholdCompositionResident> householdCompositionResidentList;
 
-
-
+    public Household(Long householdSerialNumber, LocalDate householdCompositionDate, String householdCompositionReasonCode, String currentHouseMovementAddress, Resident resident) {
+        this.householdSerialNumber = householdSerialNumber;
+        this.householdCompositionDate = householdCompositionDate;
+        this.householdCompositionReasonCode = householdCompositionReasonCode;
+        this.currentHouseMovementAddress = currentHouseMovementAddress;
+        this.resident = resident;
+    }
 }

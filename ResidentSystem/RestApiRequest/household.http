@@ -1,0 +1,17 @@
+POST /household HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 3,
+  "householdCompositionDate": "2012-07-17",
+  "householdCompositionReasonCode": "세대전입",
+  "currentHouseMovementAddress": "김해시 내동 삼성아파트리오"
+}
+
+###
+
+DELETE /household/2
+Content-Type: application/json
+Host: localhost:8080
