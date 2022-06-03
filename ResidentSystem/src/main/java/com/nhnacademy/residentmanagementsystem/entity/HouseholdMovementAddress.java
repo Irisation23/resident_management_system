@@ -34,7 +34,7 @@ public class HouseholdMovementAddress {
     @Getter
     @Setter
     @Embeddable
-    public class HouseholdMovementAddressPk implements Serializable {
+    public static class HouseholdMovementAddressPk implements Serializable {
         @Column(name = "house_movement_report_date")
         private LocalDate houseMovementReportDate;
 

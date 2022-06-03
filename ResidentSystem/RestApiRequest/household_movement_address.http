@@ -1,0 +1,25 @@
+POST /household/1/movement HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080
+
+{
+  "houseMovementReportDate": "2012-03-13",
+  "houseMovementAddress": "강원도 고성시 광산리 광산읍 7575부대",
+  "lastAddressYn": "Y"
+}
+
+###
+
+PUT /household/1/movement/20120313
+Content-Type: application/json
+Host: localhost:8080
+
+{
+  "houseMovementAddress": "강원도 감자가 많이나는 어느곳."
+}
+
+###
+
+DELETE /household/1/movement/20120313
+Content-Type: application/json
+Host: localhost:8080

@@ -5,42 +5,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public interface HouseholdCompositionResponseResidentDto {
-
-    HouseholdCompositionResidentResponsePk getHouseholdCompositionResidentPk();
-    interface HouseholdCompositionResidentResponsePk {
+public interface HouseholdMovementAddressResponseDto {
+    HouseholdMovementAddressPkResponseDto getHouseholdMovementAddressPk();
+    interface HouseholdMovementAddressPkResponseDto {
+        @JsonFormat(pattern = "yyyy-MM-dd")
+        LocalDate getHouseMovementReportDate();
         Long getHouseholdSerialNumber();
-        Long getResidentSerialNumber();
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    LocalDate getReportDate();
+    String getHouseMovementAddress();
+    String getLastAddressYn();
 
-    String getHouseholdRelationShipCode();
-    String getHouseholdCompositionChangeReasonCode();
-
-    ResidentResponseDto getResident();
-    interface ResidentResponseDto {
-
-        Long getResidentSerialNumber();
-        String getName();
-        String getResidentRegistrationNumber();
-        String getGenderCode();
-
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        LocalDateTime getBirthDate();
-        String getBirthPlaceCode();
-        String getRegistrationBaseAddress();
-
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        LocalDateTime getDeathDate();
-
-        String getDeathPlaceCode();
-        String getDeathPlaceAddress();
-    }
-
-    HouseholdResponseDto getHousehold();
-    interface HouseholdResponseDto {
+    HouseholdResponse getHousehold();
+    interface HouseholdResponse {
 
         Long getHouseholdSerialNumber();
         @JsonFormat(pattern = "yyyy-MM-dd")

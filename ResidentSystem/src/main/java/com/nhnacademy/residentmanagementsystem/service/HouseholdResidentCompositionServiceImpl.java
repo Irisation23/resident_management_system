@@ -41,8 +41,8 @@ public class HouseholdResidentCompositionServiceImpl implements HouseholdResiden
         HouseholdCompositionResident householdCompositionResident =
                 new HouseholdCompositionResident(householdCompositionResidentPk
                         , householdResidentCompositionRequestDto.getReportDate()
-        , householdResidentCompositionRequestDto.getHouseholdRelationshipCode()
-                , householdResidentCompositionRequestDto.getHouseholdCompositionChangeReasonCode()
+                        , householdResidentCompositionRequestDto.getHouseholdRelationshipCode()
+                        , householdResidentCompositionRequestDto.getHouseholdCompositionChangeReasonCode()
                         , baseResident
                         , baseHousehold);
 
@@ -57,8 +57,7 @@ public class HouseholdResidentCompositionServiceImpl implements HouseholdResiden
 
         HouseholdCompositionResident.HouseholdCompositionResidentPk householdCompositionResidentPk =
                 new HouseholdCompositionResident.HouseholdCompositionResidentPk(householdSerialNum
-                        ,serialNum);
-
+                        , serialNum);
         householdCompositionResidentRepository.deleteById(householdCompositionResidentPk);
 
         return "세대구성 삭제 완료! 찡긋 ^^77";
