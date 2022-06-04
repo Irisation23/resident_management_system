@@ -27,6 +27,10 @@ public interface ResidentResponseDto {
     String getDeathPlaceCode();
 
     String getDeathPlaceAddress();
+
+    String getUserName();
+    String getPassword();
+    String getEmail();
     
     
 

@@ -9,6 +9,7 @@ import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentExceptio
 import com.nhnacademy.residentmanagementsystem.repository.FamilyRelationshipRepository;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ public class FamilyRelationShipServiceImpl implements FamilyRelationshipService 
     }
 
     @Override
+    @Transactional
     public FamilyRelationshipResponseDto registerFamilyRelationship(Long serialNumber, FamilyRelationshipRequestDto familyRelationshipRequestDto) {
 
         Resident baseResident = residentRepository.findById(serialNumber)
@@ -41,6 +43,7 @@ public class FamilyRelationShipServiceImpl implements FamilyRelationshipService 
     }
 
     @Override
+    @Transactional
     public FamilyRelationshipResponseDto updateFamilyRelationship(Long serialNumber, Long familySerialNumber, FamilyRelationshipRequestDto familyRelationshipRequestDto) {
 
         Resident baseResident = residentRepository.findById(serialNumber)
@@ -61,6 +64,7 @@ public class FamilyRelationShipServiceImpl implements FamilyRelationshipService 
     }
 
     @Override
+    @Transactional
     public String deleteFamilyRelationship(Long serialNumber, Long familySerialNumber) {
         FamilyRelationship.FamilyRelationshipPk familyRelationshipPk =
                 new FamilyRelationship.FamilyRelationshipPk(familySerialNumber, serialNumber);

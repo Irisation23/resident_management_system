@@ -8,11 +8,14 @@ import com.nhnacademy.residentmanagementsystem.exception.NotFindHouseholdExcepti
 import com.nhnacademy.residentmanagementsystem.exception.NotFindHouseholdMovementAddress;
 import com.nhnacademy.residentmanagementsystem.repository.HouseholdMovementAddressRepository;
 import com.nhnacademy.residentmanagementsystem.repository.HouseholdRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-
+@Slf4j
 @Service
+
 public class HouseholdMovementAddressServiceImpl implements HouseholdMovementAddressService {
 
     private final HouseholdRepository householdRepository;
@@ -24,6 +27,7 @@ public class HouseholdMovementAddressServiceImpl implements HouseholdMovementAdd
     }
 
     @Override
+    @Transactional
     public HouseholdMovementAddressResponseDto registerHouseholdMovementAddress(Long householdSerialNumber, HouseholdMovementAddressRequestDto householdMovementAddressRequestDto) {
 
         Household baseHousehold = householdRepository.findById(householdSerialNumber)
@@ -45,6 +49,7 @@ public class HouseholdMovementAddressServiceImpl implements HouseholdMovementAdd
     }
 
     @Override
+    @Transactional
     public HouseholdMovementAddressResponseDto updateHouseholdMovementAddress(Long householdSerialNumber, LocalDate reportDateFormat, HouseholdMovementAddressRequestDto householdMovementAddressRequestDto) {
 
         HouseholdMovementAddress.HouseholdMovementAddressPk householdMovementAddressPk =
@@ -54,14 +59,14 @@ public class HouseholdMovementAddressServiceImpl implements HouseholdMovementAdd
         HouseholdMovementAddress updateHouseholdMovementAddress = householdMovementAddressRepository.findById(householdMovementAddressPk)
                 .orElseThrow(() -> new NotFindHouseholdMovementAddress("해당 세대 이동주소는 없습니다."));
 
-        updateHouseholdMovementAddress.setHouseMovementAddress(updateHouseholdMovementAddress.getHouseMovementAddress());
-
-        householdMovementAddressRepository.save(updateHouseholdMovementAddress);
+        updateHouseholdMovementAddress.setHouseMovementAddress(householdMovementAddressRequestDto.getHouseMovementAddress());
+        householdMovementAddressRepository.saveAndFlush(updateHouseholdMovementAddress);
 
         return householdMovementAddressRepository.findByHouseholdMovementAddressPk(householdMovementAddressPk);
     }
 
     @Override
+    @Transactional
     public String deleteHouseholdMovementAddress(Long householdSerialNumber, LocalDate reportDateFormat) {
         HouseholdMovementAddress.HouseholdMovementAddressPk householdMovementAddressPk =
                 new HouseholdMovementAddress.HouseholdMovementAddressPk(reportDateFormat

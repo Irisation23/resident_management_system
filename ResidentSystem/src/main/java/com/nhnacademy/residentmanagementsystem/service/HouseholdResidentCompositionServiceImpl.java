@@ -11,6 +11,7 @@ import com.nhnacademy.residentmanagementsystem.repository.HouseholdCompositionRe
 import com.nhnacademy.residentmanagementsystem.repository.HouseholdRepository;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class HouseholdResidentCompositionServiceImpl implements HouseholdResidentCompositionService {
@@ -27,6 +28,7 @@ public class HouseholdResidentCompositionServiceImpl implements HouseholdResiden
     }
 
     @Override
+    @Transactional
     public HouseholdCompositionResponseResidentDto registerHouseholdResidentCompositions(HouseholdCompositionResidentRequestDto householdResidentCompositionRequestDto) {
         Resident baseResident = residentRepository.findById(householdResidentCompositionRequestDto.getResidentSerialNumber())
                 .orElseThrow(() -> new NotFindResidentException("해당 주민은 없습니다."));
@@ -53,6 +55,7 @@ public class HouseholdResidentCompositionServiceImpl implements HouseholdResiden
     }
 
     @Override
+    @Transactional
     public String deleteHouseholdResidentCompositions(Long serialNum, Long householdSerialNum) {
 
         HouseholdCompositionResident.HouseholdCompositionResidentPk householdCompositionResidentPk =

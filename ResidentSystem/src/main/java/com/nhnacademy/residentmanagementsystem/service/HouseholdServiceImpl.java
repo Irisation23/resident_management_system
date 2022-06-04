@@ -10,6 +10,7 @@ import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentExceptio
 import com.nhnacademy.residentmanagementsystem.repository.HouseholdRepository;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class HouseholdServiceImpl implements HouseholdService {
@@ -23,6 +24,7 @@ public class HouseholdServiceImpl implements HouseholdService {
     }
 
     @Override
+    @Transactional
     public HouseholdResponseDto registerHousehold(HouseholdRequestDto householdRequestDto) {
         Resident householdResident = residentRepository.findById(householdRequestDto.getHouseholdResidentSerialNumber())
                 .orElseThrow(() -> new NotFindResidentException("해당 주민은 없습니다."));
@@ -39,6 +41,7 @@ public class HouseholdServiceImpl implements HouseholdService {
     }
 
     @Override
+    @Transactional
     public String deleteHousehold(Long householdSerialNumber) {
         Household household = householdRepository.findById(householdSerialNumber)
                 .orElseThrow(() -> new NotFindHouseholdException("해당 세대주 정보는 없습니다."));

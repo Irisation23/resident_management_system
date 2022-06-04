@@ -4,9 +4,12 @@ import com.nhnacademy.residentmanagementsystem.dto.request.ResidentRequestDto;
 import com.nhnacademy.residentmanagementsystem.dto.response.ResidentResponseDto;
 import com.nhnacademy.residentmanagementsystem.entity.Resident;
 import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentException;
+import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentListException;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ResidentServiceImpl implements ResidentService{
@@ -64,6 +67,16 @@ public class ResidentServiceImpl implements ResidentService{
         Long updateResidentSerialNumber = residentRepository.save(resident).getResidentSerialNumber();
 
         return residentRepository.findByResidentSerialNumber(updateResidentSerialNumber);
+    }
+
+    @Override
+    public List<Resident> findResidentList() {
+        List<Resident> findResidents = residentRepository.findAll();
+        if(findResidents.isEmpty()) {
+            throw new NotFindResidentListException("해당 주민 리스트는 존재하지 않습니다.");
+        }
+
+        return findResidents;
     }
 
     private boolean isName(ResidentRequestDto residentRequestDto) {

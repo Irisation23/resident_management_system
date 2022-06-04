@@ -45,6 +45,11 @@ public class Resident {
 
     @Column(name = "death_place_address")
     private String deathPlaceAddress;
+    @Column(name = "id")
+    private String userName;
+    private String password;
+    private String email;
+
 
     @OneToMany(mappedBy = "resident")
     @JsonIgnore

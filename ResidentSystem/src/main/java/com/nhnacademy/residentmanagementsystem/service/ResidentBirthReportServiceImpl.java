@@ -9,6 +9,7 @@ import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentExceptio
 import com.nhnacademy.residentmanagementsystem.repository.BirthDeathReportResidentRepository;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ResidentBirthReportServiceImpl implements ResidentBirthReportService{
@@ -22,6 +23,7 @@ public class ResidentBirthReportServiceImpl implements ResidentBirthReportServic
     }
 
     @Override
+    @Transactional
     public ResidentBirthDeathReportResponseDto registerBirthResident(Long serialNumber, ResidentBirthReportRequestDto residentBirthReportRequestDto) {
 
         Resident birthReportResident = residentRepository.findById(serialNumber) //신고자
@@ -61,6 +63,7 @@ public class ResidentBirthReportServiceImpl implements ResidentBirthReportServic
     }
 
     @Override
+    @Transactional
     public ResidentBirthDeathReportResponseDto updateBirthResident(Long serialNumber, Long targetSerialNumber, ResidentBirthReportRequestDto residentBirthReportRequestDto) {
 
         Resident birthResident = residentRepository.findById(targetSerialNumber)
@@ -95,6 +98,7 @@ public class ResidentBirthReportServiceImpl implements ResidentBirthReportServic
     }
 
     @Override
+    @Transactional
     public String deleteBirthResident(Long serialNumber, Long targetSerialNumber) {
         Resident birthResident = residentRepository.findById(targetSerialNumber)
                 .orElseThrow(()->new NotFindResidentException("해당 신생아는 없습니다."));

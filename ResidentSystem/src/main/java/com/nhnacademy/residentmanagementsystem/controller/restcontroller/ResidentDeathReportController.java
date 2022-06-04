@@ -1,4 +1,4 @@
-package com.nhnacademy.residentmanagementsystem.controller;
+package com.nhnacademy.residentmanagementsystem.controller.restcontroller;
 
 import com.nhnacademy.residentmanagementsystem.dto.request.ResidentDeathReportRequestDto;
 import com.nhnacademy.residentmanagementsystem.dto.response.ResidentBirthDeathReportResponseDto;

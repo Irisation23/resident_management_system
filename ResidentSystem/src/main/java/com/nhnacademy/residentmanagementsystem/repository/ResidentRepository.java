@@ -21,6 +21,8 @@ public interface ResidentRepository extends JpaRepository<Resident
 
     ResidentResponseDto findByResidentSerialNumber(Long residentSerialNumber);
 
+    ResidentResponseDto findByUserName(String addUserName);
+
     //원래는 findById (findByResdentSerialNumber) 결과가 Optional<Resident>
     // 이 결과를 다시 Dto로 변환해서 반환해줌
 

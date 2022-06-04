@@ -8,6 +8,7 @@ import com.nhnacademy.residentmanagementsystem.exception.NotFindResidentExceptio
 import com.nhnacademy.residentmanagementsystem.repository.BirthDeathReportResidentRepository;
 import com.nhnacademy.residentmanagementsystem.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ResidentDeathReportServiceImpl implements ResidentDeathReportService {
@@ -22,6 +23,7 @@ public class ResidentDeathReportServiceImpl implements ResidentDeathReportServic
     }
 
     @Override
+    @Transactional
     public ResidentBirthDeathReportResponseDto registerDeathReport(Long serialNum, ResidentDeathReportRequestDto residentDeathReportRequestDto) {
 
         Resident deathResident = residentRepository.findById(residentDeathReportRequestDto.getSerialNum())
@@ -50,6 +52,7 @@ public class ResidentDeathReportServiceImpl implements ResidentDeathReportServic
     }
 
     @Override
+    @Transactional
     public ResidentBirthDeathReportResponseDto updateDeathReport(Long serialNum, Long targetSerialNum, ResidentDeathReportRequestDto residentDeathReportRequestDto) {
 
         Resident reportDeathResident = residentRepository.findById(serialNum)

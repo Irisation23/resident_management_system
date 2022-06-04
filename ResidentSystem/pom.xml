@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -150,6 +149,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>3.0.15.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.7.1</version>
+        </dependency>
 
     </dependencies>
 
@@ -194,7 +208,6 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
